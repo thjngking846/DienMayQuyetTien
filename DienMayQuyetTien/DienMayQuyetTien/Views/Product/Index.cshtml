@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DienMayQuyetTien.Models.BangSanPham>
+
+@{
+    ViewBag.Title = "Danh Sách Sản Phẩm";
+}
+
+<h2>Danh Sách Sản Phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm Sản Phẩm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Sản Phẩm
+        </th>
+        <th>
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Giá Bán
+        </th>
+        <th>
+            Giá Góc
+        </th>
+        <th>
+            Giá Trả Góp
+        </th>
+        <th>
+            Số Lượng Tồn
+        </th>
+        <th>
+            Tên Loại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaGoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaGop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongTon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
