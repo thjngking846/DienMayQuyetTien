@@ -17,7 +17,7 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Mã Sản Phẩm</h4>
+            @Html.LabelFor(model => model.MaSP, "Mã SP", new {@class ="control-label col-md-2"})            
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MaSP)
                 @Html.ValidationMessageFor(model => model.MaSP)
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Tên Sản Phẩm</h4>
+            @Html.LabelFor(model => model.MaSP, "Tên SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenSP)
                 @Html.ValidationMessageFor(model => model.TenSP)
@@ -33,15 +33,15 @@
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Loại Sản Phẩm</h4>
+            @Html.LabelFor(model => model.MaSP, "Loại SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Loai_id", String.Empty)
+                @Html.DropDownListFor(model => model.Loai_id, (IEnumerable<SelectListItem>)ViewData["Loai_id"], new { @class = "control-label col-md-2" })
                 @Html.ValidationMessageFor(model => model.Loai_id)
             </div>
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Giá</h4>
+            @Html.LabelFor(model => model.MaSP, "Giá SP", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaBan)
                 @Html.ValidationMessageFor(model => model.GiaBan)
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Giá Gốc</h4>
+            @Html.LabelFor(model => model.MaSP, "Giá Gốc", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaGoc)
                 @Html.ValidationMessageFor(model => model.GiaGoc)
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Giá Góp</h4>
+            @Html.LabelFor(model => model.MaSP, "Giá Góp", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GiaGop)
                 @Html.ValidationMessageFor(model => model.GiaGop)
@@ -65,7 +65,15 @@
         </div>
 
         <div class="form-group">
-            <h4 class="control-label col-md-2">Số Lượng Tồn</h4>
+            @Html.LabelFor(model => model.MaSP, "Tồn Kho", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongTon)
+                @Html.ValidationMessageFor(model => model.SoLuongTon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaSP, "Tồn Kho", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuongTon)
                 @Html.ValidationMessageFor(model => model.SoLuongTon)
@@ -86,4 +94,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.Loai_id').select2();
+        });
+    </script>
 }
